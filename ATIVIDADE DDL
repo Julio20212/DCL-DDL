@@ -1,0 +1,47 @@
+#exemplo:
+create database exemplo_1e;
+
+#criar tabelas produtos
+
+create table produtos(
+	cod_prod integer primary key,
+    nome varchar(30),
+    preco numeric(10,2)
+);
+
+create table pedidos(
+	cod_pedido integer primary key,
+    cod_prod integer,
+    quiantidade integer,
+    foreign key(cod_prod) references produtos(cod_prod)
+);
+
+#Atividade 1:
+
+#criar banco de dados empresa
+create database EMPRESA;
+
+#criar tabela departamento
+create table DEPARTAMENTO(
+	DEPCODIGO integer primary key,
+    DEPNOME varchar(50)
+);
+
+#criar tabela funcionario
+create table FUNCIONARIO(
+	FUNCODIGO integer PRIMARY KEY,
+    DEPCODIGO integer,
+    FUNNOME varchar(100),
+    FUNNASCIMENTO date,
+    FUNSALARIO numeric(10,2),
+    foreign key(DEPCODIGO) references DEPARTAMENTOS (DEPCODIGO)
+);
+
+#criar tabela dependete	
+create table DEPENDETENTE(
+	DEPENCODIGO integer primary key,
+    FUNCODIGO integer,
+    DEPENNOME varchar(100),
+    foreign key(FUNCODIGO) references FUNCIONARIO (FUNCODIGO)
+);
+
